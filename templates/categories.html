@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="content">
+    <h2>Categories</h2>
+      {%if 'username' in session %}
+     <a href = '{{url_for('newItem')}}'>
+		<button >
+		<span ></span> Add Item</button>
+	</a>
+    {% endif %}
+
+
+    <ul>
+        {%for i in categories%}
+        <li><a href="{{url_for('CategoryItem', category_id= i.id)}}">{{i.name}}</a></li>
+        {%endfor%}
+    </ul>
+
+
+    <h3>Latest Items</h3>
+    <ul>
+        {%for i in items%}
+        <li><a href="{{url_for('item',item_id = i.id)}}">{{i.name}}</a>({{i.category.name}})</li>
+        {%endfor%}
+    </ul>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+<header class="header">
+    {%if 'username' in session %}
+    <a class="signinButton" href="{{url_for('gdisconnect')}}">Logout </a>
+    {% else %}
+    <div id="signinButton">
+          <span class="g-signin"
+                data-scope="openid email"
+                data-clientid="417836170087-fb8g59mvtg2l2lc8boq32rcvbqu2f0hc.apps.googleusercontent.com"
+                data-redirecturi="postmessage"
+                data-accesstype="offline"
+                data-cookiepolicy="single_host_origin"
+                data-callback="signInCallback"
+                data-approvalprompt="force">
+          </span>
+    </div>
+
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+
+    {% endif %}
+</header>

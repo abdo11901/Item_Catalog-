@@ -1,0 +1,48 @@
+{% extends "main.html" %}
+{% block content %}
+<header>
+    <div class="header">
+        <h1>Catalog App</h1>
+        {% if username %}
+        <a href="{{url_for('gdisconnect')}}" id="login">LogOut</a>
+        {% else %}
+        <div id="signinButton">
+          <span class="g-signin"
+                data-scope="openid email"
+                data-clientid="265239379206-34qjrsvi41jgq6vpj4cl9dqojg5pspke.apps.googleusercontent.com"
+                data-redirecturi="postmessage"
+                data-accesstype="offline"
+                data-cookiepolicy="single_host_origin"
+                data-callback="signInCallback"
+                data-approvalprompt="force">
+          </span>
+        </div>
+        {% endif%}
+    </div>
+</header>
+
+
+<div class="item">
+    <h2> edit Item</h2>
+
+    <form action="#" method="post">
+        Title<br>
+        <input type="text" name="name" value="{{item.name}}">
+        <br>Description<br>
+        <input type="text" name="description" value="{{item.description}}">
+        <br>category
+        <br><select name="category">
+        {% for i in categories %}
+        {%if i.id == item.category_id%}
+        <option value="{{i.id}}" selected>{{i.name}}</option>
+        {%else%}
+        <option value="{{i.id}}">{{i.name}}</option>
+        {%endif%}
+        {% endfor %}
+    </select>
+        <br>
+        <input type="submit">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="content">
+<h2>{{item.name}} </h2>
+    <p>{{item.description}}</p>
+    {%if 'username' in session %}
+
+    {%if thisuser %}
+    <a href = '{{url_for('deleteItem', item_id = item.id)}}'>
+		<button class="btn btn-default">
+		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Delete</button>
+	</a>
+
+     <a href = '{{url_for('editItem', item_id = item.id)}}'>
+		<button class="btn btn-default">Edit</button>
+    {% endif %}
+    {% endif %}
+</div>
+
+{% endblock %}
