@@ -29,5 +29,5 @@ Files explanation
   * -cd Item-Catalog
   * -python demo.py
     
-1 2-open your browser and write:
+ 2-open your browser and write:
   * -localhost:5000/
