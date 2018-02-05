@@ -21,9 +21,7 @@ Files explanation
 * README.md: contains a description of our project
 
   How to run it:  
-====================
-
-
+  ====================
  1-Run the vagrant: 
   * -vagrant up
   * -vagrant ssh
